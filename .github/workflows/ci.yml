@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches:
-      - master
+      - truffleruby-ci
   pull_request:
     branches-ignore:
       - "tests-passed"
@@ -31,7 +31,7 @@ jobs:
         build_types: ["BACKEND", "FRONTEND", "LINT"]
         target: ["PLUGINS", "CORE"]
         os: [ubuntu-latest]
-        ruby: ["2.6"]
+        ruby: ["2.6", "truffleruby-head"]
         postgres: ["12"]
         redis: ["4.x"]
 
@@ -82,7 +82,7 @@ jobs:
           redis-version: ${{ matrix.redis }}
 
       - name: Setup ruby
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
 
