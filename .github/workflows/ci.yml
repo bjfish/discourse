@@ -92,14 +92,14 @@ jobs:
           bundle config deployment 'true'
           bundle config without 'development'
 
-      - name: Bundler cache
-        uses: actions/cache@v1
-        id: bundler-cache
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gem-
+      # - name: Bundler cache
+      #   uses: actions/cache@v1
+      #   id: bundler-cache
+      #   with:
+      #     path: vendor/bundle
+      #     key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-gem-
 
       - name: Setup gems
         run: bundle install
