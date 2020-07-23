@@ -102,7 +102,7 @@ jobs:
       #       ${{ runner.os }}-gem-
 
       - name: Setup gems
-        run: bundle install
+        run: bundle install --jobs 4
 
       - name: Get yarn cache directory
         id: yarn-cache-dir
